@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Mvc", "1 - Mvc", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMvc.Infra.Data", "CleanArchMvc.Infra.Data\CleanArchMvc.Infra.Data.csproj", "{690ABB09-6FFE-48B9-AB75-BF29DEFAF7F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMvc.Infra.IoC", "CleanArchMvc.Infra.IoC\CleanArchMvc.Infra.IoC.csproj", "{F8128D7C-F4A7-4489-973B-2994892B7153}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Tests", "4 - Tests", "{788FA74E-367D-4820-B8CE-C3A637A8B6EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMvc.Domain.Tests", "CleanArchMvc.Domain.Tests\CleanArchMvc.Domain.Tests.csproj", "{B2A1392F-199A-4A55-BEAC-1A460BF63F57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,10 @@ Global
 		{F8128D7C-F4A7-4489-973B-2994892B7153}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8128D7C-F4A7-4489-973B-2994892B7153}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8128D7C-F4A7-4489-973B-2994892B7153}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2A1392F-199A-4A55-BEAC-1A460BF63F57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2A1392F-199A-4A55-BEAC-1A460BF63F57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2A1392F-199A-4A55-BEAC-1A460BF63F57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2A1392F-199A-4A55-BEAC-1A460BF63F57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +63,7 @@ Global
 		{1B1D7602-7F1E-4A7C-AF63-86DD4F9DAB99} = {D2837793-EC9C-4626-8327-5B63FF640B9E}
 		{690ABB09-6FFE-48B9-AB75-BF29DEFAF7F9} = {FA3EB199-98A5-4592-80ED-5190697CB710}
 		{F8128D7C-F4A7-4489-973B-2994892B7153} = {FA3EB199-98A5-4592-80ED-5190697CB710}
+		{B2A1392F-199A-4A55-BEAC-1A460BF63F57} = {788FA74E-367D-4820-B8CE-C3A637A8B6EA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B60903A8-DED1-4F07-8908-9EEA2AB2863F}
