@@ -6,37 +6,47 @@ namespace CleanArchMvc.Domain.Tests
 {
     public class CategoryUnitTest
     {
-        [Fact(DisplayName = "Create Category With valid State")]
-        public void CreateCategory_WithValidParamiters_ResultObjectValidState()
+        [Fact(DisplayName = "Create Category With Valid State")]
+        public void CreateCategory_WithValidParameters_ResultObjectValidState()
         {
-            Action action = () => new Category(1, "Category Name");
+            Action action = () => new Category(1, "Category Name ");
             action.Should()
-                  .NotThrow<DomainExceptionValidation>();
-
+                 .NotThrow<DomainExceptionValidation>();
         }
 
-        [Fact(DisplayName = "Create Category With Negative Id Value")]
-        public void CreateCategory_NegativeIdValue_DomainExceptionValidationInvalidId()
+        [Fact]
+        public void CreateCategory_NegativeIdValue_DomainExceptionInvalidId()
         {
-            Action action = () => new Category(-1, "Category Name");
+            Action action = () => new Category(-1, "Category Name ");
             action.Should()
-                   .Throw<DomainExceptionValidation>().WithMessage("Invalid id value");
+                .Throw<DomainExceptionValidation>()
+                 .WithMessage("Invalid Id value.");
         }
 
-        [Fact(DisplayName = "Create Category With short  name Value")]
-        public void CreateCategory_ShortNameValue_DomainExceptionValidationName()
+        [Fact]
+        public void CreateCategory_ShortNameValue_DomainExceptionShortName()
         {
             Action action = () => new Category(1, "Ca");
             action.Should()
-                   .Throw<DomainExceptionValidation>().WithMessage("Invalid name.Name, too short, minimum 3 characters");
+                .Throw<DomainExceptionValidation>()
+                   .WithMessage("Invalid name, too short, minimum 3 characters");
         }
 
-        [Fact(DisplayName = "Create Category Missing name Value")]
-        public void CreateCategory_MissingNameValue_DomainExceptionValidationRequiredName()
+        [Fact]
+        public void CreateCategory_MissingNameValue_DomainExceptionRequiredName()
         {
             Action action = () => new Category(1, "");
             action.Should()
-                   .Throw<DomainExceptionValidation>().WithMessage("Invalid name.Name is required");
+                .Throw<DomainExceptionValidation>()
+                .WithMessage("Invalid name.Name is required");
+        }
+
+        [Fact]
+        public void CreateCategory_WithNullNameValue_DomainExceptionInvalidName()
+        {
+            Action action = () => new Category(1, null);
+            action.Should()
+                .Throw<DomainExceptionValidation>();
         }
     }
 }
