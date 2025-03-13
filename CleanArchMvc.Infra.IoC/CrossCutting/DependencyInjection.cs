@@ -11,9 +11,10 @@ namespace CleanArchMvc.Infra.IoC.CrossCutting
     {
         public static IServiceCollection AddInfrastruture(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<ApplicationDbContext>(
-                options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"),
-                migrations => migrations.MigrationsAssembly(typeof(ApplicationDbContext).Assembly)));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
+                                                        configuration.GetConnectionString("DefaultConnection"),
+                                                        migrations => migrations.MigrationsAssembly(typeof(ApplicationDbContext).Assembly)
+                                                        ));
 
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
