@@ -4,7 +4,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
-      - "ConnectionStrings:DefaultConnection=Server=sqlserver,1433;Database=cleanArchDb;User Id=sa;Password=2Secure*Password2"
+      - "ConnectionStrings:DefaultConnection=Server=sqlserver;Database=cleanArchDb;User Id=sa;Password=2Secure*Password2;Encrypt=False;Trust Server Certificate=True"
     ports:
       - "5000:8080"
     networks: 
@@ -30,6 +30,4 @@ services:
     networks: 
       - clean-archtecture-network
     volumes:
-      - ./data:/var/opt/mssql/data
-      - ./log:/var/opt/mssql/log
-      - ./secrets:/var/opt/mssql/secrets
+      - sqlserver-data:/var/opt/mssql

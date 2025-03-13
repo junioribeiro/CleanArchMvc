@@ -3,9 +3,9 @@ networks:
   clean-archtecture-network:
     name: clean-archtecture-network
     driver: bridge   
-### Volumes
-# volumes:
-#       sqlserver-data:
+## Volumes
+volumes:
+      sqlserver-data:
 
 ### Services
 services:
