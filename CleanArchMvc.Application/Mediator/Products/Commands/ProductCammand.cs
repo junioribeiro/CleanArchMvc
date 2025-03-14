@@ -1,7 +1,7 @@
 ﻿using CleanArchMvc.Domain.Entities;
 using MediatR;
 
-namespace CleanArchMvc.Application.Products.Commands
+namespace CleanArchMvc.Application.Mediator.Products.Commands
 {
     public abstract class ProductCommand : IRequest<Product>
     {

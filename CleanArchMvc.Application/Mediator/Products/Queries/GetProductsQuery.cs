@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArchMvc.Application.Products.Queries
+namespace CleanArchMvc.Application.Mediator.Products.Queries
 {
     public class GetProductsQuery : IRequest<IEnumerable<Product>>
     {

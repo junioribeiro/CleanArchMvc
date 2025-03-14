@@ -1,4 +1,5 @@
-﻿using CleanArchMvc.Application.Interfaces;
+﻿using CleanArchMvc.Application.DTOs;
+using CleanArchMvc.Application.Interfaces;
 using CleanArchMvc.Application.Mappings;
 using CleanArchMvc.Application.Services;
 using CleanArchMvc.Domain.Interfaces;
@@ -23,8 +24,8 @@ namespace CleanArchMvc.Infra.IoC.CrossCutting
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
-            services.AddAutoMapper(typeof(DomainToDTOMappingProfile));
-
+            services.AddAutoMapper(typeof(DomainToDTOMappingProfile));            
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ProductService).Assembly));
             return services;
         }
     }

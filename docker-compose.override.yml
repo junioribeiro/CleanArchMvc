@@ -1,6 +1,7 @@
 services:
   cleanarchmvc.webui:
     container_name: app-web
+    restart: always
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_HTTP_PORTS=8080
@@ -20,7 +21,7 @@ services:
 
   sqlserver:
     container_name: sqlserver
-    restart: unless-stopped
+    restart: always
     environment:
       SA_PASSWORD: "2Secure*Password2"
       ACCEPT_EULA: "Y"

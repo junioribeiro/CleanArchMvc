@@ -6,15 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArchMvc.Application.Products.Queries
+namespace CleanArchMvc.Application.Mediator.Products.Queries
 {
-    public class GetProductByIdQuery : IRequest<Product>
+    public class GetProductCategoryQuery : IRequest<Product>
     {
         public int Id { get; set; }
-
-        public GetProductByIdQuery(int id)
+        public GetProductCategoryQuery(int id)
         {
             Id = id;
-        }
+        }    
     }
 }

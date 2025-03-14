@@ -1,9 +1,9 @@
-﻿using CleanArchMvc.Application.Products.Commands;
+﻿using CleanArchMvc.Application.Mediator.Products.Commands;
 using CleanArchMvc.Domain.Entities;
 using CleanArchMvc.Domain.Interfaces;
 using MediatR;
 
-namespace CleanArchMvc.Application.Products.Handlers
+namespace CleanArchMvc.Application.Mediator.Products.Handlers
 {
     public class ProductCreateCommandHandler : IRequestHandler<ProductCreateCommand, Product>
     {
