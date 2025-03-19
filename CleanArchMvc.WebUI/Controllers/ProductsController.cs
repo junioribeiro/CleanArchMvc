@@ -10,11 +10,13 @@ namespace CleanArchMvc.WebUI.Controllers
     {
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
+        private readonly IWebHostEnvironment _environment;
 
-        public ProductsController(IProductService productService, ICategoryService categoryService)
+        public ProductsController(IProductService productService, ICategoryService categoryService, IWebHostEnvironment environment)
         {
             _productService = productService;
             _categoryService = categoryService;
+            _environment = environment;
         }
 
         [HttpGet]
@@ -53,6 +55,39 @@ namespace CleanArchMvc.WebUI.Controllers
 
             ViewBag.CategoryId = new SelectList(await _categoryService.GetCategoriesAsync(), "Id", "Name", product.CategoryId);
             return View(product);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var produto = await _productService.GetByIdAsync(id);
+            if (produto is null)
+                return NotFound();
+
+            return View(produto);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _productService.RemoveAsync(id);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var produto = await _productService.GetProductCategoryAsync(id);
+            if (produto is null)
+                return NotFound();
+
+            var wwwroot = _environment.WebRootPath;
+            var image = Path.Combine(wwwroot, "images/" + produto.Image); // Docker Linux
+            //var image = Path.Combine(wwwroot, "images\\" + produto.Image); // Windows
+            var exists = System.IO.File.Exists(image);
+            ViewBag.ImageExist = exists;            
+            return View(produto);
+
         }
     }
 }
