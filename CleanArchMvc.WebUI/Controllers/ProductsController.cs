@@ -1,5 +1,6 @@
 ﻿using CleanArchMvc.Application.DTOs;
 using CleanArchMvc.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Threading.Tasks;
@@ -57,7 +58,7 @@ namespace CleanArchMvc.WebUI.Controllers
             return View(product);
         }
 
-        [HttpGet]
+        [HttpGet, Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var produto = await _productService.GetByIdAsync(id);
@@ -82,8 +83,8 @@ namespace CleanArchMvc.WebUI.Controllers
                 return NotFound();
 
             var wwwroot = _environment.WebRootPath;
-            var image = Path.Combine(wwwroot, "images/" + produto.Image); // Docker Linux
-            //var image = Path.Combine(wwwroot, "images\\" + produto.Image); // Windows
+            //var image = Path.Combine(wwwroot, "images/" + produto.Image); // Docker Linux
+            var image = Path.Combine(wwwroot, "images\\" + produto.Image); // Windows
             var exists = System.IO.File.Exists(image);
             ViewBag.ImageExist = exists;            
             return View(produto);
