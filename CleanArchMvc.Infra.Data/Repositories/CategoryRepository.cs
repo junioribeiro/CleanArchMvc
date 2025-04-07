@@ -38,6 +38,11 @@ namespace CleanArchMvc.Infra.Data.Repositories
             return entity;
         }
 
+        public async Task RunMigrate()
+        {
+           await _categoryContext.Database.MigrateAsync();
+        }
+
         public async Task<Category> UpdateAsync(Category entity)
         {
             _categoryContext.Update(entity);

@@ -48,5 +48,33 @@ namespace CleanArchMvc.Infra.IoC.CrossCutting
 
             return services;
         }
+
+        public static IServiceCollection AddInfrastrutureAPI(this IServiceCollection services, IConfiguration configuration)
+        {
+            // Registra o entity como provedor de acesso ao SQLServer
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
+                                                        configuration.GetConnectionString("DefaultConnection"),
+                                                        migrations => migrations.MigrationsAssembly(typeof(ApplicationDbContext).Assembly)
+                                                        ));
+
+            //Identity User
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                    .AddEntityFrameworkStores<ApplicationDbContext>()
+                    .AddDefaultTokenProviders();
+
+            // Dependencias de construtores
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IAuthenticate, AuthenticateService>();
+
+            services.AddAutoMapper(typeof(DomainToDTOMappingProfile), typeof(DTOToCommandMappingProfile));
+
+            //Mediator
+            services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ProductService).Assembly));
+
+            return services;
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace CleanArchMvc.Domain.Interfaces
         Task<Category> CreateAsync(Category entity);
         Task<Category> UpdateAsync(Category entity);
         Task<Category> RemoveAsync(Category entity);
+        Task RunMigrate();
     }
 }

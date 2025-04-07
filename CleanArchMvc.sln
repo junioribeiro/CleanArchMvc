@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMvc.Domain.Tests",
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Api", "0 - Api", "{725ED325-CAD6-4CAA-AFEF-441A5896F16E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArchMvc.API", "..\CleanArchMvc.API\CleanArchMvc.API.csproj", "{F952109A-7B2F-49E4-A490-769E65199CD9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,10 @@ Global
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F952109A-7B2F-49E4-A490-769E65199CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F952109A-7B2F-49E4-A490-769E65199CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F952109A-7B2F-49E4-A490-769E65199CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F952109A-7B2F-49E4-A490-769E65199CD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +78,7 @@ Global
 		{690ABB09-6FFE-48B9-AB75-BF29DEFAF7F9} = {FA3EB199-98A5-4592-80ED-5190697CB710}
 		{F8128D7C-F4A7-4489-973B-2994892B7153} = {FA3EB199-98A5-4592-80ED-5190697CB710}
 		{B2A1392F-199A-4A55-BEAC-1A460BF63F57} = {788FA74E-367D-4820-B8CE-C3A637A8B6EA}
+		{F952109A-7B2F-49E4-A490-769E65199CD9} = {725ED325-CAD6-4CAA-AFEF-441A5896F16E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B60903A8-DED1-4F07-8908-9EEA2AB2863F}

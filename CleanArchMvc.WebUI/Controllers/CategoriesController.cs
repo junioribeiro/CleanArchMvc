@@ -2,6 +2,7 @@
 using CleanArchMvc.Application.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
 
 namespace CleanArchMvc.WebUI.Controllers
@@ -14,6 +15,20 @@ namespace CleanArchMvc.WebUI.Controllers
         public CategoriesController(ICategoryService categoryService)
         {
             _categoryService = categoryService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> RunMigrate()
+        {
+            try
+            {
+                await _categoryService.RunMigrate();
+                return RedirectToAction("Index");
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         [HttpGet]

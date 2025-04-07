@@ -41,6 +41,15 @@ namespace CleanArchMvc.Application.Services
             await _categoryRepository.RemoveAsync(entity);
         }
 
+        /// <summary>
+        /// Roda as migrations pendentes caso necessario
+        /// </summary>
+        /// <returns></returns>
+        public async Task RunMigrate()
+        {
+            await _categoryRepository.RunMigrate();
+        }
+
         public async Task UpdateAsync(CategoryDTO categoryDto)
         {
             var entity = _mapper.Map<Category>(categoryDto);

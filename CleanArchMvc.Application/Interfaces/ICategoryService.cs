@@ -9,5 +9,6 @@ namespace CleanArchMvc.Application.Interfaces
         Task AddAsync(CategoryDTO categoryDto);
         Task UpdateAsync(CategoryDTO categoryDto);
         Task RemoveAsync(int id);
+        Task RunMigrate();
     }
 }
