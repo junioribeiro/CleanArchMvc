@@ -1,14 +1,13 @@
 ﻿using CleanArchMvc.Application.DTOs;
 
-namespace CleanArchMvc.Application.Interfaces
+namespace CleanArchMvc.Application.Interfaces;
+
+public interface IProductService
 {
-    public interface IProductService
-    {
-        Task<IEnumerable<ProductDTO>> GetProductsAsync();
-        Task<ProductDTO> GetByIdAsync(int id);
-        Task<ProductDTO> GetProductCategoryAsync(int id);
-        Task AddAsync(ProductDTO productDto);
-        Task UpdateAsync(ProductDTO productDto);
-        Task RemoveAsync(int id);
-    }
+    Task<IEnumerable<ProductDTO>> GetProductsAsync();
+    Task<ProductDTO> GetByIdAsync(int id);
+    Task<ProductDTO> GetProductCategoryAsync(int id);
+    Task AddAsync(ProductDTO productDto);
+    Task UpdateAsync(ProductDTO productDto);
+    Task RemoveAsync(int id);
 }
